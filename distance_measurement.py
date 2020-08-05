@@ -1,10 +1,16 @@
 import RPi.GPIO as GPIO
 import time
 
-SIG = 15
-GPIO.setmode(GPIO.BCM)
 
-def Distance():
+def Distance(SIG=15):
+    '''
+    arguments:
+    
+    SIG: pin at which ultrasonic sensor is set, by default value is 15
+    '''
+    GPIO.setmode(GPIO.BCM)
+    
+    #intialisation in case sensor won't work 
     start = time.time()
     end = time.time()
     
@@ -12,7 +18,7 @@ def Distance():
 
     GPIO.output(SIG,GPIO.LOW)
 
-    time.sleep(0.002)
+    time.sleep(0.0002)
 
     GPIO.output(SIG,GPIO.HIGH)
     time.sleep(0.000001)
@@ -29,11 +35,12 @@ def Distance():
     sig_time = end - start
 
     distance = sig_time / 0.000058
-
+    GPIO.cleanup(SIG)
+    
     #print('Object is at {} cm'.format(round(distance),4))
     return distance
 
-'''
+
 if __name__ == '__main__':
     try:
         while True:
@@ -44,6 +51,5 @@ if __name__ == '__main__':
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
         print("Measurement stopped by User")
-        GPIO.cleanup()
+        
 
-'''
