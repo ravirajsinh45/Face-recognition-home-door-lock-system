@@ -10,13 +10,7 @@ import os
 from lock_control import unlock, lock
 from distance_measurement import Distance
 import RPi.GPIO as GPIO
-'''
-dist = Distance()
-print('distance {}'.format(dist))
-if dist<10:
-    unlock()
-    
-'''
+
 
 TOLERANCE = 0.4
 FRAME_THICKNESS = 3
@@ -39,10 +33,13 @@ print('Processing...')
 
 while True:
     try:
+        # Using ultra sonic distance sensor to measure the distance of object
         dist = Distance()
+        time.sleep(1)
+    # Whenever you press ctrl+c script stop running    
     except KeyboardInterrupt:
         break
-    print('Distance is {}'.format(dist))
+    print('Distance is {} cms'.format(dist))
     if dist < 150:
         tic = time.time()      
         while True:
@@ -59,11 +56,10 @@ while True:
             encodings = face_recognition.face_encodings(image, locations)
 
             # We passed our image through face_locations and face_encodings, so we can modify it
-            # First we need to convert it from RGB to BGR as we are going to work with cv2
-            #image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
             # But this time we assume that there might be more faces in an image - we can find faces of dirrerent people
             print(f', found {len(encodings)} face(s)')
+            
+            
             for face_encoding, face_location in zip(encodings, locations):
 
                 # We use compare_faces (but might use face_distance as well)
@@ -77,9 +73,14 @@ while True:
                     match = known_names[results.index(True)]
                     
                     if match == 'Ravirajsinh': #In Your case whatever your name
-                        unlock()
-                        time.sleep(10)
-                        lock()
+                        
+                        '''
+                        Here we using solenoid lock to for lock-unlock the door,
+                        Lock connected with relay module and relay module is set on 26 pin(BCM mode) of Pi.
+                        '''
+                        unlock(26)
+                        time.sleep(10) #Lock will remains open for 10 seconds.
+                        lock(26)
                         GPIO.cleanup(26)
                         
                     
@@ -106,17 +107,17 @@ while True:
                            
            
             tok = time.time() 
-            # Show image
             
-            cv2.imshow('webcam', image)
+            # Show image
+            cv2.imshow('Picam',image)
             if cv2.waitKey(1) == ord('q'):
                 cv2.destroyAllWindows()
                 break
             
             
-            
+            # Camera will only remains open for 20 seconds
             if tok-tic>20:
-                #cv2.destroyAllWindows()
+                cv2.destroyAllWindows()
                 break
         
         
