@@ -65,7 +65,8 @@ There are several ways to work with pi two of them is here.
 
     ### 1. Using with TV or desktop
     * If you have HDMI compatible Desktop or tv, USB key board and mouse you connect with each other and  give power supply to pi.
-    * You will get screen like this ![](https://www.raspberrypi.org/documentation/installation/images/noobs.png)
+    * You will get screen like this  
+    ![](https://www.raspberrypi.org/documentation/installation/images/noobs.png)
     * There will be few option for installtion, we only need **Raspbian** to install. select Raspbian and press install it took while to get install.
     * After installtion configure your time zone and reboot the pi and you ready to rock :)
 
@@ -130,7 +131,7 @@ The camera module is a small circuit board, with a strip of ribbon cable that pl
 ### 2. Ultrasonic sensor
 
 ![](https://github.com/ravirajsinh45/Face-recognition-home-door-lock-system/blob/master/assets/ultrasonic_distance_sensor.jpeg)  
-I'm using [3 pin Ultrasonic Distance Sensor](https://www.thingbits.in/products/grove-ultrasonic-distance-sensor). Advantage of using this sensor over [Ultrasoni SR04](https://lastminuteengineers.com/arduino-sr04-ultrasonic-sensor-tutorial/) is you only need 1 signal pin instead of 2 pin(one for trig and other for echo) which save one GPIO pin of Pi. Other advantage is it work on 3.3V and 5V both power while SR04 require 5V.  
+I'm using [3 pin Ultrasonic Distance Sensor](https://www.thingbits.in/products/grove-ultrasonic-distance-sensor). Advantage of using this sensor over [Ultrasonic SR04](https://lastminuteengineers.com/arduino-sr04-ultrasonic-sensor-tutorial/) is you only need 1 signal pin instead of 2 pin(one for trig and other for echo) which save one GPIO pin of Pi. Other advantage is it work on 3.3V and 5V both power while SR04 require 5V.  
 NOTE: If you have SR04 sensor it's not problem i will guide as well.
 
 #### How to connect with pi
