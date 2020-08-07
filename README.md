@@ -66,7 +66,7 @@ There are several ways to work with pi two of them is here.
     ### 1. Using with TV or desktop
     * If you have HDMI compatible Desktop or tv, USB key board and mouse you connect with each other and  give power supply to pi.
     * You will get screen like this  
-    ![](https://www.raspberrypi.org/documentation/installation/images/noobs.png)
+    ![](https://github.com/ravirajsinh45/Face-recognition-home-door-lock-system/blob/master/assets/noobs.png)
     * There will be few option for installtion, we only need **Raspbian** to install. select Raspbian and press install it took while to get install.
     * After installtion configure your time zone and reboot the pi and you ready to rock :)
 
@@ -122,7 +122,8 @@ GPIO Pin Diagram
 In Pi there are 40 GPIO pins.
 
 ### 1. Camera
-![](https://github.com/ravirajsinh45/Face-recognition-home-door-lock-system/blob/master/assets/camera_module.jpeg)
+![](https://github.com/ravirajsinh45/Face-recognition-home-door-lock-system/blob/master/assets/camera_module.jpeg)  
+
 The camera module is a small circuit board, with a strip of ribbon cable that plugs directly into the Raspberry Pi board. It’s easiest to connect the camera before you plug your Raspberry Pi into any cables.
 * Open the camera connector on your Raspberry Pi board which is in between hdmi and audio port, hold the ends between your finger and thumb and gently lift. 
 * The plastic parts don’t separate, but they move apart to make a gap. This is where you insert the camera’s cable.
